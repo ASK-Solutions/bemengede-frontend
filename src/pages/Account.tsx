@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import Field from '../components/Field';
+import LoginMethods from '../components/LoginMethods';
 import { api, ApiError, API_URL } from '../lib/api';
 import { useAuth } from '../lib/auth';
 
@@ -51,16 +52,18 @@ export default function Account() {
 
       <section className="card stack" aria-labelledby="profile">
         <h2 id="profile" style={{ fontSize: 20 }}>Your details</h2>
-        <p className="muted small">Signed in as {user?.phone}</p>
+        <p className="muted small">Signed in as {user?.username ? `@${user.username}` : user?.phone ?? user?.email}</p>
         <Field label="Name (optional)" autoComplete="name" value={name} onChange={(e) => setName(e.target.value)} />
         <Field label="Email (optional)" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <div className="row"><button className="btn btn-primary" onClick={save}>Save</button><button className="btn btn-ghost" onClick={signOut}>Sign out</button></div>
       </section>
 
+      <LoginMethods />
+
       <section className="card stack" aria-labelledby="mkt">
         <h2 id="mkt" style={{ fontSize: 20 }}>Messages</h2>
         <p className="small muted">Tickets and trip changes are always sent. Offers are only sent if you switch them on.</p>
-        <label className="check"><input type="checkbox" checked={!!consents?.marketing_sms} onChange={(e) => setMarketing('marketing_sms', e.target.checked)} /><span>Offers by SMS</span></label>
+        <label className="check"><input type="checkbox" checked={!!consents?.marketing_sms} disabled={!user?.login_methods?.phone} onChange={(e) => setMarketing('marketing_sms', e.target.checked)} /><span>Offers by SMS{!user?.login_methods?.phone && ' (add a phone first)'}</span></label>
         <label className="check"><input type="checkbox" checked={!!consents?.marketing_email} disabled={!user?.email} onChange={(e) => setMarketing('marketing_email', e.target.checked)} /><span>Offers by email{!user?.email && ' (add an email first)'}</span></label>
       </section>
 

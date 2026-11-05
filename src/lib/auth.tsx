@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import { api } from './api';
 
-type User = { id: number; name: string | null; phone: string; email: string | null; locale: string; role: string; operator_id?: number | null };
+type User = { id: number; name: string | null; username: string | null; phone: string | null; email: string | null; locale: string; role: string; operator_id?: number | null; login_methods?: { phone: boolean; password: boolean; google: boolean } };
 type Ctx = { token: string | null; user: User | null; signIn: (token: string, user: User) => void; signOut: () => void; refresh: () => void };
 
 const AuthCtx = createContext<Ctx>(null!);

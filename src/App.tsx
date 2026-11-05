@@ -10,6 +10,8 @@ import MockPay from './pages/MockPay';
 import BookingPage from './pages/Booking';
 import MyTrips from './pages/MyTrips';
 import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import ForgotPassword from './pages/ForgotPassword';
 import Account from './pages/Account';
 import Legal from './pages/Legal';
 import Unsubscribe from './pages/Unsubscribe';
@@ -58,6 +60,8 @@ export default function App() {
         <Route path="booking/:reference" element={<BookingPage />} />
         <Route path="my-trips" element={<MyTrips />} />
         <Route path="sign-in" element={<SignIn />} />
+        <Route path="sign-up" element={<SignUp />} />
+        <Route path="forgot-password" element={<ForgotPassword />} />
         <Route path="account" element={<Account />} />
         <Route path="privacy" element={<Legal doc="privacy" />} />
         <Route path="terms" element={<Legal doc="terms" />} />

@@ -6,7 +6,7 @@ import { api } from './api';
  * "Reject" and "Allow" have equal weight; nothing optional loads before a "yes".
  * Bump CONSENT_VERSION when the cookie policy changes to ask again.
  */
-export const CONSENT_VERSION = '2026-11-04';
+export const CONSENT_VERSION = '2026-11-05';
 const KEY = 'bm_consent';
 
 type Choice = { analytics: boolean; version: string; id: string; at: string };

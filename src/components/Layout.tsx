@@ -21,7 +21,7 @@ export default function Layout() {
             <NavLink to="/my-trips">My trips</NavLink>
             <a href="/#partners">Bus partners</a>
             <a href="/#operators">For bus companies</a>
-            {user ? <NavLink to="/account">Account</NavLink> : <NavLink to="/sign-in">Sign in</NavLink>}
+            {user ? <NavLink to="/account">Account</NavLink> : <><NavLink to="/sign-in">Sign in</NavLink><NavLink to="/sign-up">Create account</NavLink></>}
           </nav>
         </div>
       </header>
