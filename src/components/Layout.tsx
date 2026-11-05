@@ -61,6 +61,7 @@ export default function Layout() {
               <li><Link to="/my-trips">Find or cancel a booking</Link></li>
               <li><Link to="/account">Download or delete my data</Link></li>
               <li><a href="/#operators">Become a bus partner</a></li>
+              <li><Link to="/staff/login">Staff sign-in</Link></li>
             </ul>
           </nav>
         </div>
